@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "ft/tygb6qf2KeK4yzxde000BN/z6/kKThjXfgUei+ijrah0AUC6bLCM6La0x0/0UMP2VoCd33PDDWkXgoXy3bw==",
+  "dgSpecHash": "ofHCShHA0Mp0gZz5auFOh6EhvAWyRvBUWKWYdS2sVGw5UTRGcA7crYOnkmbUYLK8g0mO++8JhENpzqSy/vq0DA==",
   "success": true,
   "projectFilePath": "C:\\dev\\he4rtlabs-challenges-03-resolution\\src\\Heart.Domain\\Heart.Domain.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\fabio\\.nuget\\packages\\fluentvalidation\\10.2.3\\fluentvalidation.10.2.3.nupkg.sha512"
+  ],
   "logs": []
 }
