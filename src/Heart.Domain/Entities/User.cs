@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using Heart.Domain.Validators;
+using System;
 
 namespace Heart.Domain.Entities
 {
@@ -19,7 +21,17 @@ namespace Heart.Domain.Entities
 
         public override bool Validate()
         {
-            throw new System.NotImplementedException();
+            var validator = new UserValidator();
+            var validation = validator.Validate(this);
+
+            if(!validation.IsValid)
+            {
+                foreach(var error in validation.Errors)
+                    _errors.Add(error.ErrorMessage);
+                
+                throw new Exception("Alguns campos estão inválidos corrija-os " + _errors[0]);
+            }
+            return true;
         }
 
 
