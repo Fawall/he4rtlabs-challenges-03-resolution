@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "8ExsHZUrIjbvtVVAYw8usK28w4Ks/nE/tAxKqPVfIYvpgJQBH4u5j0ZdygOR16hpbb6MiW1ZiaDgH/ch6J90Ww==",
+  "dgSpecHash": "ewPUu92TRCN40xgkD/deEl3xJ5rw99yxdxSYHCxI4Z0iysM9SS+Z+3tSt7BSbdQqo8dOzXpzgWKmDbvQUGSD/Q==",
   "success": true,
   "projectFilePath": "C:\\dev\\he4rtlabs-challenges-03-resolution\\src\\Heart.Services\\Heart.Services.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\fabio\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
+    "C:\\Users\\fabio\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\fabio\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512"
+  ],
   "logs": []
 }
