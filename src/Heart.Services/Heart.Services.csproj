@@ -4,4 +4,13 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="automapper" Version="10.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Heart.Infra\Heart.Infra.csproj" />
+    <ProjectReference Include="..\Heart.Domain\Heart.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
