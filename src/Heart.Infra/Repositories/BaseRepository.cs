@@ -3,19 +3,18 @@ using System.Threading.Tasks;
 using Heart.Domain.Entities;
 using Heart.Infra.Interfaces;
 using System.Data.SqlClient;
-
 using System.Configuration;
 
 namespace Heart.Infra.Repositories
 {
     public class BaseRepository<T> : IBaseRepository<T> where T : User
     {
-        // string conn = ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString  ;
+        string conn = ConfigurationManager.AppSettings["SqlConnection"];
         public virtual async Task<T> Create(T obj)
         {
             string queryString = $@"INSERT INTO Usuarios (email, password) VALUES (@email, @password)";
 
-            using(SqlConnection sqlConnection = new SqlConnection("Server=localhost,1401;Database=HeartChallenge03; User ID=Sa;Password=Fab@o123; MultipleActiveResultSets=true"))
+            using(SqlConnection sqlConnection = new SqlConnection(conn))
             {
                 await sqlConnection.OpenAsync();
                 
