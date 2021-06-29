@@ -13,7 +13,7 @@ namespace Heart.API.ViewModels
 
         [Required(ErrorMessage = "A senha não pode ser vazia.")]
         [MinLength(6, ErrorMessage = "A senha deve ter no mínimo 6 caracteres.")]
-        [MaxLength(30, ErrorMessage = "A senha deve ter no máximo 30 caracteres.")]
+        [MaxLength(40, ErrorMessage = "A senha deve ter no máximo 30 caracteres.")]
         public string Password { get; set; }
 
 
