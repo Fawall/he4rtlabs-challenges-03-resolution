@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 
-namespace src.Heart.Core
+namespace Heart.Core.Exceptions
 {
-    public class DomainExceptions : Exception
+    public class DomainException : Exception
     {
         internal List<string> _errors;
         public List<string> Errors => _errors;
