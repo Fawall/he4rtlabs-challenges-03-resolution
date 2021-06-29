@@ -8,4 +8,11 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Heart.Domain\Heart.Domain.csproj" />
+    <ProjectReference Include="..\Heart.Core\Heart.Core.csproj" />
+    <ProjectReference Include="..\Heart.Infra\Heart.Infra.csproj" />
+    <ProjectReference Include="..\Heart.Services\Heart.Services.csproj" />
+  </ItemGroup>
+
 </Project>
