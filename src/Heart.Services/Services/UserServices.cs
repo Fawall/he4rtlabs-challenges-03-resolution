@@ -21,11 +21,6 @@ namespace Heart.Services.Services
 
         public async Task<UserDTO> Create(UserDTO userDTO)
         {
-            var userExists = await _userRepository.GetByEmail(userDTO.Email);
-
-            if(userExists != null)
-                throw new Exception("Ja existe um usuário com este email");
-
             var user = _mapper.Map<User>(userDTO);
             user.Validate();
 

@@ -18,6 +18,7 @@ namespace Heart.Infra.Repositories
             using(SqlConnection sqlConnection = new SqlConnection(conn))
             {
                 await sqlConnection.OpenAsync();
+                
                 using(SqlCommand cmd = new SqlCommand(queryString, sqlConnection))
                 {
                     cmd.Parameters.AddWithValue("@email", obj.Email);
