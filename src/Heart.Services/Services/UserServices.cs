@@ -5,6 +5,7 @@ using Heart.Infra.Interfaces;
 using Heart.Services.DTO;
 using Heart.Domain.Entities;
 using System;
+using Heart.Core.Exceptions;
 
 namespace Heart.Services.Services
 {
@@ -21,6 +22,11 @@ namespace Heart.Services.Services
 
         public async Task<UserDTO> Create(UserDTO userDTO)
         {
+            var userExists = await _userRepository.GetByEmail(userDTO.Email);
+
+            if(userExists != null)
+                throw new DomainException("Já existe um usuário com este email");
+
             var user = _mapper.Map<User>(userDTO);
             user.Validate();
 
