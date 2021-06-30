@@ -19,6 +19,11 @@ namespace Heart.Domain.Entities
             Validate();
         }
 
+        public User(string email)
+        {
+            Email = email;
+        }
+
         public override bool Validate()
         {
             var validator = new UserValidator();
