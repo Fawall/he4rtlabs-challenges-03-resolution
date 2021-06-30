@@ -537,6 +537,7 @@ obj/*
 # Ignore all local history of files
 .history
 .ionide
+.vscode
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,csharp,dotnetcore,aspnetcore
 src/Heart.Services/obj/Debug/net5.0/Heart.Services.assets.cache
