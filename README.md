@@ -5,7 +5,7 @@ Projeto criado para realizar o desafio 03 da He4rt Developers
 ❌ Criar endpoints de autenticação (registro e login)
 
 #### Desafios Extras
-❌ Realizar a verificação dos dados (como por exemplo, se já está cadastrado no sistema). <br />
+✔️ Realizar a verificação dos dados (como por exemplo, se já está cadastrado no sistema). <br />
 ❌ Verificação do email (usando SMTP ou algum serviço como sendgrid) <br />
 ❌ Validar se a senha não está no top 1000 de senhas mais usadas (fracas) <br />
 ❌ Criar hash da senha e guardar no banco (inMemory, sql, nosql...), e realizar comparação dos hash no login <br />
