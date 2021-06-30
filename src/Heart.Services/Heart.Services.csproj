@@ -11,6 +11,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Heart.Infra\Heart.Infra.csproj" />
     <ProjectReference Include="..\Heart.Domain\Heart.Domain.csproj" />
+    <ProjectReference Include="..\Heart.Core\Heart.Core.csproj" />
   </ItemGroup>
 
 </Project>
