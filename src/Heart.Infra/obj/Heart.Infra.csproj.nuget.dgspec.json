@@ -111,10 +111,6 @@
             "System.Data.SqlClient": {
               "target": "Package",
               "version": "[4.8.2, )"
-            },
-            "automapper": {
-              "target": "Package",
-              "version": "[10.1.1, )"
             }
           },
           "imports": [
