@@ -25,7 +25,10 @@ namespace Heart.Infra.Repositories
 
                     if(dr.HasRows)
                         return true;
-                        
+                    
+                    await sqlConnection.CloseAsync();
+                    await dr.CloseAsync();
+                    
                     return false;
                 }
             }
