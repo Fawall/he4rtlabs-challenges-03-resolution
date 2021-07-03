@@ -1,8 +1,8 @@
 using System.Configuration;
 
-namespace Heart.Infra.Databases
+namespace Heart.Infra.Database
 {
-    public class Database 
+    public class DatabaseString
     {
         public string Conexao()
         {
