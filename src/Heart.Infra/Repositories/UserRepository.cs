@@ -5,7 +5,7 @@ using Heart.Infra.Interfaces;
 using System.Data.SqlClient;
 using System.Configuration;
 using System;
-using Heart.Infra.Databases;
+using Heart.Infra.Database;
 
 namespace Heart.Infra.Repositories
 {

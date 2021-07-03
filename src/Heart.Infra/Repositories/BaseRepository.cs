@@ -4,11 +4,11 @@ using Heart.Domain.Entities;
 using Heart.Infra.Interfaces;
 using System.Data.SqlClient;
 using System.Configuration;
-using Heart.Infra.Databases;
+using Heart.Infra.Database;
 
 namespace Heart.Infra.Repositories
 {
-    public class BaseRepository<T> : Database, IBaseRepository<T> where T : User
+    public class BaseRepository<T> : DatabaseString, IBaseRepository<T> where T : User
     {
         public virtual async Task<T> Create(T obj)
         {
