@@ -27,7 +27,7 @@ namespace Heart.API.Controllers
         }
 
         [HttpPost]
-        [Route("/api/v1/auth/login")]
+        [Route("/api/auth/login")]
         public async Task<IActionResult> Login([FromBody]LoginViewModel loginViewModel)
         {
             if(await _authRepository.Login(loginViewModel.Email, loginViewModel.Password) != true)
