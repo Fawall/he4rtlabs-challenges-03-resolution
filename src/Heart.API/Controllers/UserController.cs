@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Heart.Core.Exceptions;
 using Heart.API.Utilities;
 using System;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Heart.API.Controllers
 {
