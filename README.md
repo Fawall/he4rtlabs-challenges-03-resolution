@@ -2,7 +2,7 @@
 Projeto criado para realizar o desafio 03 da He4rt Developers 
 
 ### Backend
-❌ Criar endpoints de autenticação (registro e login)
+✔️ Criar endpoints de autenticação (registro e login)
 
 #### Desafios Extras
 ✔️ Realizar a verificação dos dados (como por exemplo, se já está cadastrado no sistema). <br />
