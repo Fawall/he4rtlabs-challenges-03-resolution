@@ -5,6 +5,8 @@ using Heart.Infra.Interfaces;
 using System.Data.SqlClient;
 using System.Configuration;
 using Heart.Infra.Database;
+using BCrypt.Net;
+
 
 namespace Heart.Infra.Repositories
 {
@@ -13,6 +15,7 @@ namespace Heart.Infra.Repositories
         public virtual async Task<T> Create(T obj)
         {
             string queryString = $@"INSERT INTO Usuarios (email, password) VALUES (@email, @password)";
+            string passwordHash = BCrypt.Net.BCrypt.HashPassword(obj.Password);
 
             using(SqlConnection sqlConnection = new SqlConnection(Conexao()))
             {
@@ -21,7 +24,7 @@ namespace Heart.Infra.Repositories
                 using(SqlCommand cmd = new SqlCommand(queryString, sqlConnection))
                 {
                     cmd.Parameters.AddWithValue("@email", obj.Email);
-                    cmd.Parameters.AddWithValue("@password", obj.Password);
+                    cmd.Parameters.AddWithValue("@password", passwordHash);
                     await cmd.ExecuteNonQueryAsync();
                 }
                 await sqlConnection.CloseAsync();     

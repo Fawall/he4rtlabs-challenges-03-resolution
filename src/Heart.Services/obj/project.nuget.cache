@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "AjoGSoFQncIeBOm6rzIq/MiH/MYJwwcuUGoqvwXL5m1U4xj1cU6Ovv8hq52enPcGsOqJht4m+Viqm12izrWlWQ==",
+  "dgSpecHash": "mfKNcgYruugLHNV/dOH4VhNvO0QWfgY78EiCCVMrwVLz4sDumfm0MPRxgak0qJxW2nRbpTf53OfxcpWuqzx3OQ==",
   "success": true,
   "projectFilePath": "C:\\dev\\he4rtlabs-challenges-03-resolution\\src\\Heart.Services\\Heart.Services.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\fabio\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
+    "C:\\Users\\fabio\\.nuget\\packages\\bcrypt.net-next\\4.0.2\\bcrypt.net-next.4.0.2.nupkg.sha512",
     "C:\\Users\\fabio\\.nuget\\packages\\fluentvalidation\\10.2.3\\fluentvalidation.10.2.3.nupkg.sha512",
     "C:\\Users\\fabio\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\fabio\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",

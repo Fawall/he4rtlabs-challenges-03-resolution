@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "eEcUit1b5GBKm89BQJToshkvD14Us6xYCQLSTh2sK/0iBJB64eTM0RRf+NTJjmTo9O89g1HHWgNtKU4TT7gTlA==",
+  "dgSpecHash": "U8606UY51K4t/Aoz8okoh5OvJQhe5QV6hm/K4MfOrwUU1zf6j4iLt9t7nQ25vYIJalc4nu7hM3UtjCSL3BrUsA==",
   "success": true,
   "projectFilePath": "C:\\dev\\he4rtlabs-challenges-03-resolution\\src\\Heart.API\\Heart.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\fabio\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
+    "C:\\Users\\fabio\\.nuget\\packages\\bcrypt.net-next\\4.0.2\\bcrypt.net-next.4.0.2.nupkg.sha512",
     "C:\\Users\\fabio\\.nuget\\packages\\fluentvalidation\\10.2.3\\fluentvalidation.10.2.3.nupkg.sha512",
     "C:\\Users\\fabio\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "C:\\Users\\fabio\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",

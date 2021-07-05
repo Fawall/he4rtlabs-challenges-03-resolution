@@ -3,7 +3,7 @@ using Heart.Infra.Interfaces;
 using System.Configuration;
 using Heart.Infra.Database;
 using System.Data.SqlClient;
-
+using BCrypt.Net;
 
 namespace Heart.Infra.Repositories
 {
@@ -20,7 +20,7 @@ namespace Heart.Infra.Repositories
                 {
                     cmd.Parameters.AddWithValue("@email", email);
                     cmd.Parameters.AddWithValue("@password", password);
-
+                    
                     SqlDataReader dr = await cmd.ExecuteReaderAsync();
 
                     if(dr.HasRows)

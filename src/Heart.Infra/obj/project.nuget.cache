@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "J5Xt3Wk4aMHROjxJP838zrEDN01xBj0a6a4/RGU/jRfx+IMhIGBMhNvUVt+b1ZWd2R8MBGEpJ4n9xZh5q1D8bA==",
+  "dgSpecHash": "JBhsSk//7OR1SBxbMFrT4L3RwACZag+PbIiatTNZCq03fCkW+VJgSoix20JyjdLlAOPJ5ptfhJqWulxROVsnFA==",
   "success": true,
   "projectFilePath": "C:\\dev\\he4rtlabs-challenges-03-resolution\\src\\Heart.Infra\\Heart.Infra.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\fabio\\.nuget\\packages\\bcrypt.net-next\\4.0.2\\bcrypt.net-next.4.0.2.nupkg.sha512",
     "C:\\Users\\fabio\\.nuget\\packages\\fluentvalidation\\10.2.3\\fluentvalidation.10.2.3.nupkg.sha512",
     "C:\\Users\\fabio\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
     "C:\\Users\\fabio\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
