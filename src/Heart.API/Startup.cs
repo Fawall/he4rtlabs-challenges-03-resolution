@@ -23,6 +23,8 @@ using Heart.API.Token;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using Heart.Infra.VerifyHash.Interfaces;
+using Heart.Infra.VerifyHash;
 
 namespace Heart.API
 {
@@ -106,6 +108,7 @@ namespace Heart.API
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<ITokenGenerator,TokenGenerator>();
             services.AddScoped<IAuthRepository, AuthRepository>();
+            services.AddScoped<IVerifyHashPassword, VerifyHashPassword>();
             services.AddSingleton(d => Configuration);
 
             #endregion
