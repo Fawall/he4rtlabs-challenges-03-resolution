@@ -56,10 +56,11 @@ namespace Heart.Infra.Repositories
                         {
                             emails.Add(dr["email"].ToString());
                         }
+                        await dr.CloseAsync();
                         return emails;
                     }
+
                     await sqlConnection.CloseAsync();
-                    await dr.CloseAsync();
                     
                     return emails;
                 }
