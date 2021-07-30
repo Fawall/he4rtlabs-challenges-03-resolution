@@ -8,6 +8,6 @@ namespace Heart.Infra.Interfaces
     {
         Task<T> Create(T obj);
         Task<T> Get(long id);
-        Task<List<T>> Get();
+        Task<List<string>> GetAll();
     }
 }

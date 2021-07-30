@@ -37,9 +37,33 @@ namespace Heart.Infra.Repositories
             throw new System.NotImplementedException();
         }
 
-        public virtual async Task<List<T>> Get()
+        public virtual async Task<List<string>> GetAll()
         {
-            throw new System.NotImplementedException();
+            List<string> emails = new List<string>();    
+        
+            string queryString = @"SELECT Email From [Usuarios]";
+
+            using(SqlConnection sqlConnection = new SqlConnection(Conexao()))
+            {
+                await sqlConnection.OpenAsync();
+                using(SqlCommand cmd = new SqlCommand(queryString, sqlConnection))
+                {                 
+                    SqlDataReader dr = await cmd.ExecuteReaderAsync();
+
+                    if(dr.HasRows)
+                    {
+                        while(await dr.ReadAsync())
+                        {
+                            emails.Add(dr["email"].ToString());
+                        }
+                        return emails;
+                    }
+                    await sqlConnection.CloseAsync();
+                    await dr.CloseAsync();
+                    
+                    return emails;
+                }
+            } 
         }
     }
 }
