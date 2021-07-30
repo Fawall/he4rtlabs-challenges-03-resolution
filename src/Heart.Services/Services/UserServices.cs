@@ -6,6 +6,7 @@ using Heart.Services.DTO;
 using Heart.Domain.Entities;
 using System;
 using Heart.Core.Exceptions;
+using System.Collections.Generic;
 
 namespace Heart.Services.Services
 {
@@ -33,6 +34,13 @@ namespace Heart.Services.Services
             var userCreated = await _userRepository.Create(user);
 
             return _mapper.Map<UserDTO>(userCreated);
+        }
+
+        public async Task<List<string>> GetAll()
+        {
+            var allUsers = await _userRepository.GetAll();
+
+            return allUsers;
         }
     }
 }
