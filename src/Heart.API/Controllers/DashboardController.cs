@@ -25,11 +25,12 @@ namespace Heart.API.Controllers
             {
                 var allUsers = await _userService.GetAll();
                 
-                return Ok(new ResultViewModel
+                return Ok(new ResultListViewModel
                 {
                     Message = "Resultados retornados",
                     Sucess = true,
-                    Data = allUsers
+                    Data = allUsers,
+                    UsersQuantity = allUsers.Count
                 });
             }
             catch(Exception)
