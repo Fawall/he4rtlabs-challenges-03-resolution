@@ -1,6 +1,5 @@
 using Heart.Services.Interfaces;
 using System.Threading.Tasks;
-using AutoMapper;
 using Heart.Infra.Interfaces;
 using Heart.Services.DTO;
 using Heart.Domain.Entities;
@@ -12,12 +11,10 @@ namespace Heart.Services.Services
 {
     public class UserServices : IUserService
     {
-        private readonly IMapper _mapper;
         private readonly IUserRepository _userRepository;
 
-        public UserServices(IMapper mapper, IUserRepository userRepository)
+        public UserServices(IUserRepository userRepository)
         {
-            _mapper = mapper;
             _userRepository = userRepository;
         }
 
@@ -28,12 +25,15 @@ namespace Heart.Services.Services
             if(userExists != null)
                 throw new DomainException("Já existe um usuário com este email");
 
-            var user = _mapper.Map<User>(userDTO);
+            User user = new User(userDTO.Email, userDTO.Password);
+
             user.Validate();
 
             var userCreated = await _userRepository.Create(user);
 
-            return _mapper.Map<UserDTO>(userCreated);
+            userDTO = new UserDTO(userCreated.Email, userCreated.Password);
+
+            return userDTO;
         }
 
         public async Task<List<string>> GetAll()

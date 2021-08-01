@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Mvc;
 using Heart.Services.DTO;
 using Heart.API.ViewModels;
 using Heart.Services.Interfaces;
-using AutoMapper;
 using System.Threading.Tasks;
 using Heart.Core.Exceptions;
 using Heart.API.Utilities;
@@ -15,12 +14,10 @@ namespace Heart.API.Controllers
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
-        private readonly IMapper _mapper;
 
-        public UserController(IUserService userService, IMapper mapper)
+        public UserController(IUserService userService)
         {
             _userService = userService;
-            _mapper = mapper;
         }
 
         [HttpPost]
@@ -29,7 +26,7 @@ namespace Heart.API.Controllers
         {
             try
             {
-                var userDTO = _mapper.Map<UserDTO>(userViewModel);
+                var userDTO = new UserDTO(userViewModel.Email, userViewModel.Password);
                 var userCreated = await _userService.Create(userDTO);
 
                 return Ok(new ResultViewModel
