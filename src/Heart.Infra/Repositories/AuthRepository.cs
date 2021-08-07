@@ -19,7 +19,6 @@ namespace Heart.Infra.Repositories
         }
         public async Task<bool> Login(string email, string password)
         {
-            // string queryString = @"SELECT Email,Password FROM [Usuarios] WHERE Email=@email AND Password=@password";
             string queryString = @"SELECT Password FROM [Usuarios] WHERE Email=@email";
 
             using(SqlConnection sqlConnection = new SqlConnection(Conexao()))

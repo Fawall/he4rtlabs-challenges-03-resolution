@@ -7,7 +7,6 @@ using System.Configuration;
 using Heart.Infra.Database;
 using BCrypt.Net;
 
-
 namespace Heart.Infra.Repositories
 {
     public class BaseRepository<T> : DatabaseString, IBaseRepository<T> where T : User
@@ -47,7 +46,8 @@ namespace Heart.Infra.Repositories
             {
                 await sqlConnection.OpenAsync();
                 using(SqlCommand cmd = new SqlCommand(queryString, sqlConnection))
-                {                 
+                {   
+        
                     SqlDataReader dr = await cmd.ExecuteReaderAsync();
 
                     if(dr.HasRows)
@@ -57,10 +57,14 @@ namespace Heart.Infra.Repositories
                             emails.Add(dr["email"].ToString());
                         }
                         await dr.CloseAsync();
+                        await sqlConnection.CloseAsync();
+                        
+
                         return emails;
                     }
 
                     await sqlConnection.CloseAsync();
+
                     
                     return emails;
                 }
