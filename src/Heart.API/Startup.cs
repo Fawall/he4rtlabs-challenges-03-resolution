@@ -95,6 +95,7 @@ namespace Heart.API
             #region DI
             services.AddScoped<IUserService, UserServices>();
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IRedisRepository, RedisRepository>();
             services.AddScoped<ITokenGenerator,TokenGenerator>();
             services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddScoped<IVerifyHashPassword, VerifyHashPassword>();
