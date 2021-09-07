@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Configuration;
 using Heart.Infra.Database;
 using BCrypt.Net;
+using System;
 
 namespace Heart.Infra.Repositories
 {
@@ -13,7 +14,9 @@ namespace Heart.Infra.Repositories
     {
         public virtual async Task<T> Create(T obj)
         {
-            string queryString = $@"INSERT INTO Usuarios (email, password) VALUES (@email, @password)";
+            DateTime CreatedUser = DateTime.Now;
+            
+            string queryString = $@"INSERT INTO Usuarios(email, password, CreatedUserDate) VALUES (@email, @password, @CreatedUser)";
             string passwordHash = BCrypt.Net.BCrypt.HashPassword(obj.Password);
 
             using(SqlConnection sqlConnection = new SqlConnection(Conexao()))
@@ -24,6 +27,7 @@ namespace Heart.Infra.Repositories
                 {
                     cmd.Parameters.AddWithValue("@email", obj.Email);
                     cmd.Parameters.AddWithValue("@password", passwordHash);
+                    cmd.Parameters.AddWithValue("@CreatedUser", CreatedUser);
                     await cmd.ExecuteNonQueryAsync();
                 }
                 await sqlConnection.CloseAsync();     
@@ -41,6 +45,7 @@ namespace Heart.Infra.Repositories
             List<string> emails = new List<string>();    
         
             string queryString = @"SELECT Email From [Usuarios]";
+            // string queryString = @"SELECT email from [testesUsers]";
 
             using(SqlConnection sqlConnection = new SqlConnection(Conexao()))
             {
