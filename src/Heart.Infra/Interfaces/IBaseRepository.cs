@@ -1,6 +1,7 @@
 using Heart.Domain.Entities;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using Heart.Infra.DTO;
 
 namespace Heart.Infra.Interfaces
 {
@@ -8,6 +9,6 @@ namespace Heart.Infra.Interfaces
     {
         Task<T> Create(T obj);
         Task<T> Get(long id);
-        Task<List<string>> GetAll();
+        Task<List<UserDataDTO>> GetAll();
     }
 }

@@ -5,6 +5,7 @@ using Heart.Infra.Interfaces;
 using System.Data.SqlClient;
 using System.Configuration;
 using Heart.Infra.Database;
+using Heart.Infra.DTO;
 using BCrypt.Net;
 using System;
 
@@ -12,10 +13,11 @@ namespace Heart.Infra.Repositories
 {
     public class BaseRepository<T> : DatabaseString, IBaseRepository<T> where T : User
     {
+
         public virtual async Task<T> Create(T obj)
         {
             DateTime CreatedUser = DateTime.Now;
-            
+          
             string queryString = $@"INSERT INTO Usuarios(email, password, CreatedUserDate) VALUES (@email, @password, @CreatedUser)";
             string passwordHash = BCrypt.Net.BCrypt.HashPassword(obj.Password);
 
@@ -27,7 +29,7 @@ namespace Heart.Infra.Repositories
                 {
                     cmd.Parameters.AddWithValue("@email", obj.Email);
                     cmd.Parameters.AddWithValue("@password", passwordHash);
-                    cmd.Parameters.AddWithValue("@CreatedUser", CreatedUser);
+                    cmd.Parameters.AddWithValue("@CreatedUser", CreatedUser.ToShortDateString());
                     await cmd.ExecuteNonQueryAsync();
                 }
                 await sqlConnection.CloseAsync();     
@@ -40,12 +42,11 @@ namespace Heart.Infra.Repositories
             throw new System.NotImplementedException();
         }
 
-        public virtual async Task<List<string>> GetAll()
+        public virtual async Task<List<UserDataDTO>> GetAll()
         {
-            List<string> emails = new List<string>();    
+            List<UserDataDTO> userData = new List<UserDataDTO>();  
         
-            string queryString = @"SELECT Email From [Usuarios]";
-            // string queryString = @"SELECT email from [testesUsers]";
+            string queryString = @"SELECT Email,CreatedUserDate From [Usuarios]";
 
             using(SqlConnection sqlConnection = new SqlConnection(Conexao()))
             {
@@ -59,19 +60,19 @@ namespace Heart.Infra.Repositories
                     {
                         while(await dr.ReadAsync())
                         {
-                            emails.Add(dr["email"].ToString());
+                            userData.Add( new UserDataDTO(){ Email = dr["email"].ToString(), CreatedAt = dr["CreatedUserDate"].ToString().Remove(10)});
                         }
                         await dr.CloseAsync();
                         await sqlConnection.CloseAsync();
                         
 
-                        return emails;
+                        return userData;
                     }
 
                     await sqlConnection.CloseAsync();
 
                     
-                    return emails;
+                    return userData;
                 }
             } 
         }
