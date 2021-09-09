@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Heart.Infra.Interfaces;
 using ServiceStack.Redis;
 using Newtonsoft.Json;
+using Heart.Infra.DTO;
 
 namespace Heart.Infra.Repositories
 {
@@ -15,7 +16,7 @@ namespace Heart.Infra.Repositories
             _userRepository = userRepository;
         }
 
-        public async Task<List<string>> GetValuesFromRedis()
+        public async Task<List<UserDataDTO>> GetValuesFromRedis()
         {
             RedisEndpoint redisEndpoint = new RedisEndpoint("localhost", 6379);
 
@@ -24,15 +25,17 @@ namespace Heart.Infra.Repositories
                 if(client.ContainsKey("usuarios") != false)
                 {
                     var emailRetornado = client.GetValue("usuarios");
-                    List<string> email = JsonConvert.DeserializeObject<List<string>>(emailRetornado);
+                    List<UserDataDTO> email = JsonConvert.DeserializeObject<List<UserDataDTO>>(emailRetornado);
+                    
                     return email;             
                 }
                 
                 var usuarios = await _userRepository.GetAll();
+                
                 client.Add("usuarios", usuarios, TimeSpan.FromMinutes(5));            
                 var emailsRetornados = client.GetValue("usuarios");
                 
-                List<string> emails = JsonConvert.DeserializeObject<List<string>>(emailsRetornados);    
+                List<UserDataDTO> emails = JsonConvert.DeserializeObject<List<UserDataDTO>>(emailsRetornados);    
 
                 return emails;
             }
