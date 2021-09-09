@@ -7,6 +7,7 @@ using System;
 using Heart.Core.Exceptions;
 using System.Collections.Generic;
 using System.Diagnostics;
+using Heart.Infra.DTO;
 
 namespace Heart.Services.Services
 {
@@ -42,7 +43,7 @@ namespace Heart.Services.Services
             return userDTO;
         }
 
-        public async Task<List<string>> GetAll()
+        public async Task<List<UserDataDTO>> GetAll()
         {
             var allUsers = await _redisRepository.GetValuesFromRedis();
     
