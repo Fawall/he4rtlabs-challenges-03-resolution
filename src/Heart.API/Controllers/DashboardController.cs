@@ -21,22 +21,25 @@ namespace Heart.API.Controllers
         [Route("/api/dashboard/get-all")]
         public async Task<IActionResult> GetAll()
         {
-            try
+            var allUsers = await _userService.GetAll();
+
+            if (allUsers != null)
             {
-                var allUsers = await _userService.GetAll();
-                
                 return Ok(new ResultListViewModel
                 {
                     Message = "Resultados retornados",
                     Sucess = true,
                     Data = allUsers,
                     UsersQuantity = allUsers.Count
+
                 });
             }
-            catch(Exception)
+        
+            else
             {
                 return StatusCode(500, Responses.ApplicationErrorMessage());
             }
+
         }
         
     }
