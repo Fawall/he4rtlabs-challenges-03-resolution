@@ -16,8 +16,8 @@ namespace Heart.Infra.Repositories
 
         public virtual async Task<T> Create(T obj)
         {
-            DateTime CreatedUser = DateTime.Now;
-          
+            DateTime CreatedUser = DateTime.Now.Date ;
+            
             string queryString = $@"INSERT INTO Usuarios(email, password, CreatedUserDate) VALUES (@email, @password, @CreatedUser)";
             string passwordHash = BCrypt.Net.BCrypt.HashPassword(obj.Password);
 
@@ -29,7 +29,7 @@ namespace Heart.Infra.Repositories
                 {
                     cmd.Parameters.AddWithValue("@email", obj.Email);
                     cmd.Parameters.AddWithValue("@password", passwordHash);
-                    cmd.Parameters.AddWithValue("@CreatedUser", CreatedUser.ToShortDateString());
+                    cmd.Parameters.AddWithValue("@CreatedUser", CreatedUser);
                     await cmd.ExecuteNonQueryAsync();
                 }
                 await sqlConnection.CloseAsync();     
